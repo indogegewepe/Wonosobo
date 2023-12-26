@@ -16,7 +16,7 @@
             <li class="dropdown"><a href="#"><span>Hi, </span><?= $_SESSION['username']?> <i class="bi bi-chevron-down"></i></a>
                 <ul>
                     <!-- <li><a href="#">Drop Down 1</a></li> -->
-                    <!-- <li><a href="../testimoni.php">Testimoni</a></li> -->
+                    <li><a data-bs-toggle="modal" data-bs-target="#exampleModal">Testimoni</a></li>
                     <li><a href="../Wonosobo/functions/logout.php">Keluar</a></li>
                 </ul>
             </li>

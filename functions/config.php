@@ -6,7 +6,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if(isset($_POST['login'])) {
+if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
@@ -24,10 +24,23 @@ if(isset($_POST['login'])) {
     }
 }
 
-// function cek_login($username, $password){
-//         if ($row["username"] == $username && $row["password"] == $password) {
-//             $_SESSION['user'] = $username;
-//             if ($row["cat"] == "admin") return header('Location: dashboardAdmin.php');
-//             return header('Location: dashboard.php');
-//         }
-// }
+if (isset($_POST["testimoni"])) {
+    $id = $_SESSION["id"];
+    $testimoni = $_POST["inputTesti"];
+    $conn->query( "INSERT INTO testimoni VALUES(NULL, '$id', '$testimoni');" );
+
+    header("Location: ../index.php#testimonials");
+}
+
+if (isset($_POST["register"])) {
+    $nama = $_POST["nama"];
+    $nohp = $_POST["nohp"];
+    $email = $_POST["email"];
+    $alamat = $_POST["alamat"];
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    $conn->query( "INSERT INTO customer (`id_cust`, `nama`, `nohp`, `email`, `username`, `password`, `alamat`) VALUES (NULL, $nama, $nohp, $email, $username, $password, $alamat);");
+
+    header("Location: ../index.php");
+}

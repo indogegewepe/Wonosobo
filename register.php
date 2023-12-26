@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Log In</title>
+    <title>Register</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -33,31 +33,45 @@
 
     <section id="hero">
         <div class="hero-container" data-aos="fade-up">
-            <form>
-                <div class="card">
+            <form method="post" action="functions/config.php" >
+                <div class="card form-login" >
                     <div class="card-header">
                         Register
                     </div>
                     <div class="card-body">
+                    <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" name="nama" required>
+                            <label for="floatingInput">Nama</label>
+                        </div>
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input type="number" class="form-control" id="floatingInput" name="nohp" required>
+                            <label for="floatingInput">NoHp</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" name="email" required>
+                            <label for="floatingInput">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" name="alamat" required>
+                            <label for="floatingInput">Alamat</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" name="username" required>
                             <label for="floatingInput">Username</label>
                         </div>
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="password" class="form-control" id="floatingPassword" name="password" required>
                             <label for="floatingPassword">Password</label>
                         </div>
-                        <button type="submit" class="btn btn-success">Register</button>
+                        <button name="register" type="submit" class="btn btn-success">Register</button>
                     </div>
                     <div class="card-footer">
-                        <a href="login.php">Sudah Punya Akun</a>
+                        <a href="register.php">Sudah Punya Akun</a>
                     </div>
                 </div>
             </form>
         </div>
     </section>
-
-    
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>

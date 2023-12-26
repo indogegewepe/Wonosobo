@@ -1,6 +1,8 @@
 <?php
 require_once("functions/config.php");
 
+$tbl_testimoni = mysqli_query($conn, "SELECT testimoni.teks,customer.nama FROM testimoni JOIN customer ON testimoni.id_customer=customer.id_cust;");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -144,19 +146,22 @@ require_once("functions/config.php");
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+            
+            <?php while ($testimoni = mysqli_fetch_assoc($tbl_testimoni)) { ?>
+              <div class="swiper-slide">
+                <div class="testimonial-item">
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    <?= $testimoni["teks"] ?>
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                  <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                  <h3><?= $testimoni["nama"] ?></h3>
+                </div>
               </div>
-            </div><!-- End testimonial item -->
+            <?php } ?>
+
+            <!-- End testimonial item -->
 
           </div>
           <div class="swiper-pagination"></div>
@@ -212,5 +217,29 @@ require_once("functions/config.php");
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form method="post" action="functions/config.php">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Masukkan testimoni</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-floating">
+              <textarea type="text" name="inputTesti" class="form-control" id="floatingTextarea2" required></textarea>
+              <label for="floatingTextarea2"></label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button name="testimoni" type="submit" class="btn btn-success">Save changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <?php include_once("view/footer.php");

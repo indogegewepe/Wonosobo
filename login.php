@@ -40,7 +40,7 @@
     <section id="hero">
         <div class="hero-container" data-aos="fade-up">
             <form method="post" action="functions/config.php" >
-                <div class="card">
+                <div class="card form-login" >
                     <div class="card-header">
                         Log In
                     </div>
@@ -62,9 +62,7 @@
             </form>
         </div>
     </section>
-
     
-
     <!-- Vendor JS Files -->
     <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>

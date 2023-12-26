@@ -20,3 +20,25 @@
 #main::before {
     background: linear-gradient(rgba(120, 181, 55, 0.5), rgba(124, 181, 55, 0.2))
   }
+
+.form-login{
+    max-width: 80vw;
+    min-width: 60vw;
+    padding: 10px;
+}
+
+.form-login .card-header{
+    font-family: system-ui;
+    font-size: x-large;
+    font-weight: 600;
+    font-variant: all-small-caps;
+}
+
+.form-login button{
+    margin-top: 20px;
+    width: -webkit-fill-available;
+}
+
+.form-login a{
+    font-weight: 600;
+}

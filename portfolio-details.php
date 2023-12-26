@@ -110,4 +110,28 @@ require_once("functions/config.php");
 
   </main><!-- End #main -->
 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form method="post" action="functions/config.php">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Masukkan testimoni</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-floating">
+              <textarea type="text" name="inputTesti" class="form-control" id="floatingTextarea2" required></textarea>
+              <label for="floatingTextarea2"></label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button name="testimoni" type="submit" class="btn btn-success">Save changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <?php include_once("view/footer.php");
