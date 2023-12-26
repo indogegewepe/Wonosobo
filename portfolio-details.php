@@ -1,3 +1,8 @@
+<?php
+require_once("functions/config.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,8 +37,8 @@
 <body>
 
   <?php 
-    if ( isset( $_SESSION['username'] ) ) include_once("view/headerlogin.php");
-    else include_once("view/header.php");
+    if ( isset( $_SESSION['username'] ) ) include("view/headerlogin.php");
+    else include("view/header.php");
   ?>
 
   <main id="main">

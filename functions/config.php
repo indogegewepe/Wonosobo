@@ -16,6 +16,7 @@ if(isset($_POST['login'])) {
     
     if ($row['username']==$username AND $row['password']==$password) {
         $_SESSION['username'] = $username;
+        $_SESSION['id'] = $row['id'];
         header("Location: ../index.php");
         
     } else {

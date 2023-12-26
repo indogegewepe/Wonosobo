@@ -46,11 +46,11 @@
                     </div>
                     <div class="card-body">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingInput" name="username" placeholder="username">
+                            <input type="text" class="form-control" id="floatingInput" name="username" placeholder="username" required>
                             <label for="floatingInput">Username</label>
                         </div>
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+                            <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
                             <label for="floatingPassword">Password</label>
                         </div>
                         <button name="login" type="submit" class="btn btn-success">Log In</button>
