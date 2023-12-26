@@ -16,11 +16,11 @@ body {
 
 a {
   text-decoration: none;
-  color: #67b0d1;
+  color: #67d170;
 }
 
 a:hover {
-  color: #8ec4dd;
+  color: #8eddac;
   text-decoration: none;
 }
 
@@ -47,7 +47,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 998;
-  background: #67b0d1;
+  background: #67d170;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -61,7 +61,7 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #86c0da;
+  background: #86da90;
   color: #fff;
 }
 
@@ -87,7 +87,7 @@ h6 {
   z-index: 997;
   transition: all 0.5s;
   padding: 24px 0;
-  background: rgba(103, 176, 209, 0.8);
+  background: rgba(108, 209, 103, 0.8);
 }
 
 #header.header-transparent {
@@ -95,7 +95,7 @@ h6 {
 }
 
 #header.header-scrolled {
-  background: rgba(55, 142, 181, 0.9);
+  background: rgba(55, 181, 74, 0.9);
   padding: 12px;
 }
 
@@ -213,7 +213,7 @@ h6 {
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: #67b0d1;
+  color: #67d170;
 }
 
 .navbar .dropdown:hover>ul {
@@ -261,7 +261,7 @@ h6 {
 .navbar .megamenu ul li a:hover,
 .navbar .megamenu ul li .active,
 .navbar .megamenu ul li .active:hover {
-  color: #67b0d1;
+  color: #67d170;
 }
 
 .navbar .megamenu:hover>ul {
@@ -322,7 +322,7 @@ h6 {
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(43, 111, 142, 0.9);
+  background: rgba(43, 142, 45, 0.9);
   transition: 0.3s;
 }
 
@@ -355,7 +355,7 @@ h6 {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: #67b0d1;
+  color: #67d170;
 }
 
 .navbar-mobile .getstarted,
@@ -390,7 +390,7 @@ h6 {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-  color: #67b0d1;
+  color: #67d170;
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
@@ -406,7 +406,7 @@ h6 {
 .navbar-mobile .megamenu ul li a:hover,
 .navbar-mobile .megamenu ul li .active,
 .navbar-mobile .megamenu ul li .active:hover {
-  color: #67b0d1;
+  color: #67d170;
 }
 
 /*--------------------------------------------------------------
@@ -415,7 +415,7 @@ h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(rgba(55, 142, 181, 0.5), rgba(55, 142, 181, 0.2)), url("../img/hero-bg.jpg") top center;
+  background: linear-gradient(rgba(55, 142, 181, 0.5), rgba(55, 142, 181, 0.2)), url("https://lh5.googleusercontent.com/p/AF1QipMd7y2kVteagJIDJZvQ9w-NhLyuZy0wFJLd-bqx=w408-h510-k-no") top center;
   background-size: cover;
   position: relative;
   margin-bottom: -90px;
@@ -624,7 +624,7 @@ section {
 
 .about .content .about-btn {
   display: inline-block;
-  background: #67b0d1;
+  background: #67d17c;
   padding: 6px 44px 8px 30px;
   color: #fff;
   border-radius: 50px;
@@ -649,7 +649,7 @@ section {
 
 .about .icon-boxes .icon-box i {
   font-size: 40px;
-  color: #67b0d1;
+  color: #67d170;
   margin-bottom: 10px;
 }
 
@@ -703,7 +703,7 @@ section {
 }
 
 .services .icon-box:hover::before {
-  background: #67b0d1;
+  background: #67d170;
   top: 0;
   border-radius: 0px;
 }
@@ -715,7 +715,7 @@ section {
 .services .icon i {
   font-size: 48px;
   line-height: 1;
-  color: #67b0d1;
+  color: #67d170;
   transition: all 0.3s ease-in-out;
 }
 
@@ -745,61 +745,10 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Counts
---------------------------------------------------------------*/
-.counts {
-  padding-bottom: 30px;
-}
-
-.counts .count-box {
-  padding: 30px;
-  width: 100%;
-}
-
-.counts .count-box i {
-  display: block;
-  font-size: 44px;
-  color: #67b0d1;
-  float: left;
-  line-height: 0;
-}
-
-.counts .count-box span {
-  font-size: 48px;
-  line-height: 40px;
-  display: block;
-  font-weight: 700;
-  color: #2f4d5a;
-  margin-left: 60px;
-}
-
-.counts .count-box p {
-  padding: 15px 0 0 0;
-  margin: 0 0 0 60px;
-  font-family: "Raleway", sans-serif;
-  font-size: 14px;
-  color: #49788c;
-}
-
-.counts .count-box a {
-  font-weight: 600;
-  display: block;
-  margin-top: 20px;
-  color: #49788c;
-  font-size: 15px;
-  font-family: "Poppins", sans-serif;
-  transition: ease-in-out 0.3s;
-}
-
-.counts .count-box a:hover {
-  color: #6e9fb4;
-}
-
-/*--------------------------------------------------------------
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: linear-gradient(rgba(103, 176, 209, 0.8), rgba(103, 176, 209, 0.8)), url("../img/cta-bg.jpg") fixed center center;
+  background: linear-gradient(rgba(105, 209, 103, 0.8), rgba(108, 209, 103, 0.8)), url("https://www.google.com/maps/place/Wonosobo,+Kec.+Wonosobo,+Kabupaten+Wonosobo,+Jawa+Tengah/@-7.3684995,109.8984085,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipOvpQOVgtJqbYLVHURvIjK8R4FDhB2_PysnzY29!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipOvpQOVgtJqbYLVHURvIjK8R4FDhB2_PysnzY29%3Dw203-h270-k-no!7i1080!8i1440!4m7!3m6!1s0x2e7aa0f89c3920ef:0x8c0eef7d094e47ad!8m2!3d-7.3684995!4d109.8984085!10e5!16s%2Fg%2F1n0bxr2zb?entry=ttu#") fixed center center;
   background-size: cover;
   padding: 60px 0;
 }
@@ -865,7 +814,7 @@ section {
 
 .portfolio #portfolio-flters li:hover,
 .portfolio #portfolio-flters li.filter-active {
-  color: #67b0d1;
+  color: #67d170;
 }
 
 .portfolio #portfolio-flters li:last-child {
@@ -908,17 +857,17 @@ section {
   color: #fff;
   font-size: 28px;
   text-align: center;
-  background: rgba(103, 176, 209, 0.75);
+  background: rgba(103, 209, 115, 0.75);
   transition: 0.3s;
   width: 50%;
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
-  background: rgba(103, 176, 209, 0.95);
+  background: rgba(103, 209, 108, 0.95);
 }
 
 .portfolio .portfolio-wrap .portfolio-links a+a {
-  border-left: 1px solid #8ec4dd;
+  border-left: 1px solid #8eddac;
 }
 
 .portfolio .portfolio-wrap:hover::before {
@@ -955,11 +904,11 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #67b0d1;
+  border: 1px solid #67d170;
 }
 
 .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #67b0d1;
+  background-color: #67d170;
 }
 
 .portfolio-details .portfolio-info {
@@ -1089,11 +1038,11 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #67b0d1;
+  border: 1px solid #67d170;
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #67b0d1;
+  background-color: #67d170;
 }
 
 /*--------------------------------------------------------------
@@ -1159,11 +1108,11 @@ section {
 
 .team .member .social a {
   transition: color 0.3s;
-  color: #52869d;
+  color: #529d74;
 }
 
 .team .member .social a:hover {
-  color: #67b0d1;
+  color: #67d170;
 }
 
 .team .member .social i {
@@ -1194,7 +1143,7 @@ section {
 
 .contact .info-box i {
   font-size: 32px;
-  color: #67b0d1;
+  color: #67d170;
   border-radius: 50%;
   padding: 8px;
   border: 2px dotted #f0f7fa;
@@ -1270,7 +1219,7 @@ section {
 
 .contact .php-email-form input::focus,
 .contact .php-email-form textarea::focus {
-  background-color: #67b0d1;
+  background-color: #67d170;
 }
 
 .contact .php-email-form input {
@@ -1282,7 +1231,7 @@ section {
 }
 
 .contact .php-email-form button[type=submit] {
-  background: #67b0d1;
+  background: #67d170;
   border: 0;
   padding: 10px 24px;
   color: #fff;
@@ -1290,7 +1239,7 @@ section {
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: #8ec4dd;
+  background: #8eddac;
 }
 
 @keyframes animate-loading {
@@ -1322,7 +1271,7 @@ section {
   margin-bottom: 15px;
   background: white;
   color: #2f4d5a;
-  border-top: 4px solid #67b0d1;
+  border-top: 4px solid #67d170;
   text-align: center;
   padding: 30px 20px;
 }
@@ -1358,7 +1307,7 @@ section {
 }
 
 #footer .footer-top .social-links a:hover {
-  background: #67b0d1;
+  background: #67d170;
   color: #fff;
   text-decoration: none;
 }
@@ -1432,7 +1381,7 @@ section {
   background: none;
   font-size: 16px;
   padding: 0 20px;
-  background: #67b0d1;
+  background: #67d170;
   color: #fff;
   transition: 0.3s;
   border-radius: 4;
