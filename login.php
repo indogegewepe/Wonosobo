@@ -1,3 +1,9 @@
+<?php
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,21 +39,21 @@
 
     <section id="hero">
         <div class="hero-container" data-aos="fade-up">
-            <form>
+            <form method="post" action="functions/config.php" >
                 <div class="card">
                     <div class="card-header">
                         Log In
                     </div>
                     <div class="card-body">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <input type="text" class="form-control" id="floatingInput" name="username" placeholder="username">
                             <label for="floatingInput">Username</label>
                         </div>
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
                             <label for="floatingPassword">Password</label>
                         </div>
-                        <button type="submit" class="btn btn-success">Log In</button>
+                        <button name="login" type="submit" class="btn btn-success">Log In</button>
                     </div>
                     <div class="card-footer">
                         <a href="register.php">Belum Punya Akun</a>

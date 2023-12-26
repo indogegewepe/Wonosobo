@@ -13,7 +13,13 @@
             <li><a class="nav-link scrollto" href="#portfolio">Galeri</a></li>
             <li><a class="nav-link scrollto" href="#testimonials">Testimoni</a></li>
             <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
-            <li><a class="nav-link" href="login.php">Masuk</a></li>
+            <li class="dropdown"><a href="#"><span>Hi, </span><?= $_SESSION['username']?> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                    <!-- <li><a href="#">Drop Down 1</a></li> -->
+                    <!-- <li><a href="../testimoni.php">Testimoni</a></li> -->
+                    <li><a href="../Wonosobo/functions/logout.php">Keluar</a></li>
+                </ul>
+            </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
