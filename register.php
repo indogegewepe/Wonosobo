@@ -66,7 +66,7 @@
                         <button name="register" type="submit" class="btn btn-success">Register</button>
                     </div>
                     <div class="card-footer">
-                        <a href="register.php">Sudah Punya Akun</a>
+                        <a href="login.php">Sudah Punya Akun</a>
                     </div>
                 </div>
             </form>

@@ -1,7 +1,8 @@
 <?php
 require_once("functions/config.php");
 
-$tbl_testimoni = mysqli_query($conn, "SELECT testimoni.teks,customer.nama FROM testimoni JOIN customer ON testimoni.id_customer=customer.id_cust;");
+$tbl_testimoni = mysqli_query($conn, "SELECT * FROM testimoni;");
+$tbl_gallery = mysqli_query($conn, "SELECT * FROM gallery JOIN paketwisata ON gallery.id_gallery=paketwisata.id_wisata;");
 
 ?>
 <!DOCTYPE html>
@@ -120,16 +121,17 @@ $tbl_testimoni = mysqli_query($conn, "SELECT testimoni.teks,customer.nama FROM t
 
         <div class="row portfolio-container" data-aos="fade-up">
 
-          <div class="col-lg-4 col-md-6 portfolio-item">
+          <?php while ($gallery = mysqli_fetch_assoc($tbl_gallery)) { ?>
+            <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+              <img src="<?= $gallery["gambar"] ?>" class="img-fluid" alt="">
               <div class="portfolio-links">
-                <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.php" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="<?= $gallery["gambar"] ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="<?= $gallery["nama_tempat"] ?>"><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details.php?id=<?= $gallery["id_gallery"] ?>" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
           </div>
-
+          <?php } ?>
 
         </div>
 
@@ -225,12 +227,15 @@ $tbl_testimoni = mysqli_query($conn, "SELECT testimoni.teks,customer.nama FROM t
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Masukkan testimoni</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="form-floating">
+              <input type="hidden" name="inputNama" class="form-control" id="floatingInput" value="<?= $_SESSION['username'] ?>">
+              <label for="floatingInputDisabled">Nama</label>
+            </div>
+            <div class="form-floating">
               <textarea type="text" name="inputTesti" class="form-control" id="floatingTextarea2" required></textarea>
-              <label for="floatingTextarea2"></label>
+              <label for="floatingTextarea2">Comments</label>
             </div>
           </div>
           <div class="modal-footer">

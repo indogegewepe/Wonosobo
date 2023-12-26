@@ -12,22 +12,22 @@ if (isset($_POST['login'])) {
 
     // cocokin dengan database
     $cekdatabase = mysqli_query($conn, "SELECT * FROM customer");
-    $row = mysqli_fetch_assoc($cekdatabase);
-    
-    if ($row['username']==$username AND $row['password']==$password) {
-        $_SESSION['username'] = $username;
-        $_SESSION['id'] = $row['id'];
-        header("Location: ../index.php");
-        
-    } else {
+    // $row = mysqli_fetch_assoc($cekdatabase);
+    foreach ($cekdatabase as $row) :
+        if ($row['username']==$username AND $row['password']==$password) {
+            $_SESSION['username'] = $username;
+            $_SESSION['id'] = $row['id_cust'];
+            header("Location: ../index.php");
+            break;
+        }
         header('location: ../login.php');
-    }
+    endforeach; 
 }
 
 if (isset($_POST["testimoni"])) {
-    $id = $_SESSION["id"];
     $testimoni = $_POST["inputTesti"];
-    $conn->query( "INSERT INTO testimoni VALUES(NULL, '$id', '$testimoni');" );
+    $nama = $_POST["inputNama"];
+    $conn->query( "INSERT INTO testimoni VALUES(NULL, '$nama', '$testimoni');" );
 
     header("Location: ../index.php#testimonials");
 }
@@ -40,7 +40,18 @@ if (isset($_POST["register"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $conn->query( "INSERT INTO customer (`id_cust`, `nama`, `nohp`, `email`, `username`, `password`, `alamat`) VALUES (NULL, $nama, $nohp, $email, $username, $password, $alamat);");
+    $conn->query( "INSERT INTO customer VALUES (NULL, '$nama', '$nohp', '$email', '$username', '$password', '$alamat');");
 
     header("Location: ../index.php");
+}
+
+if (isset($_POST["keranjang"])) {
+    $jumlah = $_POST["jumlahTiket"];
+    $tanggal = $_POST["inputTanggal"];
+    $idcust = $_SESSION['id'];
+    $idwisata = $_POST["getIdWisata"];
+
+    $conn->query( "INSERT INTO keranjang (`id_keranjang`, `id_customer`, `id_wisata`, `jumlah_tiket`, `tanggal`) VALUES (NULL, '$idcust', '$idwisata', '$jumlah', '$tanggal');");
+
+    header("Location: ../keranjang.php");
 }

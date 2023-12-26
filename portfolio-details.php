@@ -1,6 +1,12 @@
 <?php
 require_once("functions/config.php");
 
+$id = $_GET['id'];
+
+$tbl_detailGambar = mysqli_query($conn, "SELECT * FROM gallery WHERE id_gallery='$id';");
+$tbl_detail = mysqli_query($conn, "SELECT * FROM paketwisata WHERE id_wisata='$id';");
+$detail = mysqli_fetch_assoc($tbl_detail);
+
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +43,7 @@ require_once("functions/config.php");
 <body>
 
   <?php 
-    if ( isset( $_SESSION['username'] ) ) include("view/headerlogin.php");
+    if ( isset( $_SESSION['username'] ) ) include("view/headerdetail.php");
     else include("view/header.php");
   ?>
 
@@ -68,17 +74,11 @@ require_once("functions/config.php");
             <div class="portfolio-details-slider swiper">
               <div class="swiper-wrapper align-items-center">
 
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-1.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-2.jpg" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="assets/img/portfolio/portfolio-3.jpg" alt="">
-                </div>
+                <?php while ($detailGambar = mysqli_fetch_assoc($tbl_detailGambar)) { ?>
+                  <div class="swiper-slide">
+                    <img src="<?= $detailGambar["gambar"] ?>" alt="<?= $detail["nama_tempat"] ?>">
+                  </div>
+                <?php } ?>
 
               </div>
               <div class="swiper-pagination"></div>
@@ -87,19 +87,23 @@ require_once("functions/config.php");
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>Project information</h3>
+              <h3>Detail information</h3>
               <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                <li><strong>Nama</strong>: <?= $detail["nama_tempat"] ?></li>
+                <li><strong>Garis Bujur</strong>: <?= $detail["garisbujur"] ?></li>
+                <li><strong>Harga Tiket</strong>: <?= $detail["harga_tiket"] ?></li>
               </ul>
             </div>
             <div class="portfolio-description">
-              <h2>This is an example of portfolio detail</h2>
+              <h2>Deskripsi dari <?= $detail["nama_tempat"] ?></h2>
               <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+              <?= $detail["deskripsi"] ?>
               </p>
+              <?php
+                if ( isset( $_SESSION['username'] ) ) { ?>
+                  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#tiketModal" >Beli Tiket</button>
+                <?php } ?>
+              
             </div>
           </div>
 
@@ -117,17 +121,46 @@ require_once("functions/config.php");
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Masukkan testimoni</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="form-floating">
+              <input type="hidden" name="inputNama" class="form-control" id="floatingInput" value="<?= $_SESSION['username'] ?>">
+            </div>
+            <div class="form-floating">
               <textarea type="text" name="inputTesti" class="form-control" id="floatingTextarea2" required></textarea>
-              <label for="floatingTextarea2"></label>
+              <label for="floatingTextarea2">Comments</label>
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
             <button name="testimoni" type="submit" class="btn btn-success">Save changes</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal fade" id="tiketModal" tabindex="-1" aria-labelledby="tiketModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form method="post" action="functions/config.php">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="tiketModalLabel">Masukkan jumlah tiket yang ingin dibeli</h1>
+          </div>
+          <div class="modal-body">
+            <div class="form-floating">
+            <input name="jumlahTiket" id="jumlahTiket" class="form-control" type="number" aria-label="default input example" required>
+              <label for="jumlahTiket">Jumlah</label>
+            </div>
+            <div class="form-floating">
+            <input name="inputTanggal" id="inputTanggal" class="form-control" type="date" aria-label="default input example" required>
+              <label for="inputTanggal">Tanggal</label>
+            </div>
+            <input type="hidden" name="getIdWisata" class="form-control" value="<?= $id ?>">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button name="keranjang" type="submit" class="btn btn-success">Checkout</button>
           </div>
         </div>
       </form>
