@@ -47,7 +47,9 @@
                             <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                             <label for="floatingPassword">Password</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Log In</button>
+                        <button type="submit" class="btn btn-success">Log In</button>
+                    </div>
+                    <div class="card-footer">
                         <a href="register.php">Belum Punya Akun</a>
                     </div>
                 </div>

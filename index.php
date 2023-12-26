@@ -1,3 +1,7 @@
+<?php
+require_once("functions/config.php");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,28 +35,10 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top header-transparent">
-    <div class="container d-flex align-items-center justify-content-between position-relative">
-
-      <div class="logo">
-        <h1 class="text-light"><a href="index.html"><span>WONOSOBO</span></a></h1>
-      </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Beranda</a></li>
-          <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Galeri</a></li>
-          <li><a class="nav-link scrollto" href="#testimonials">Testimoni</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
-          <li><a class="nav-link" href="login.php">Masuk</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
+  <?php 
+  if ( isset( $_SESSION['username'] ) ) include_once("view/headerlogin.php");
+  else include_once("view/header.php");
+  ?>
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
@@ -306,31 +292,4 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>WNSBDGTL</span></strong>. All Rights Reserved
-      </div>
-    </div>
-
-  </footer><!-- End Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
-</html>
+  <?php include_once("view/footer.php");
