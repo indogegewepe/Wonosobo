@@ -8,11 +8,10 @@ if ($conn->connect_error) {
 
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = $_POST["password"];
 
     // cocokin dengan database
     $cekdatabase = mysqli_query($conn, "SELECT * FROM customer");
-    // $row = mysqli_fetch_assoc($cekdatabase);
     foreach ($cekdatabase as $row) :
         if ($row['username']==$username AND $row['password']==$password) {
             $_SESSION['username'] = $username;
@@ -51,7 +50,8 @@ if (isset($_POST["keranjang"])) {
     $idcust = $_SESSION['id'];
     $idwisata = $_POST["getIdWisata"];
 
-    $conn->query( "INSERT INTO keranjang (`id_keranjang`, `id_customer`, `id_wisata`, `jumlah_tiket`, `tanggal`) VALUES (NULL, '$idcust', '$idwisata', '$jumlah', '$tanggal');");
+    $conn->query( "INSERT INTO keranjang VALUES (NULL, '$idcust', '$idwisata', '$jumlah', '$tanggal');");
 
     header("Location: ../keranjang.php");
 }
+

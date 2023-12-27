@@ -5,6 +5,12 @@ $id = $_SESSION['id'];
 
 $tbl_keranjang = mysqli_query($conn, "SELECT * FROM keranjang JOIN customer ON customer.id_cust=keranjang.id_customer JOIN paketwisata ON paketwisata.id_wisata=keranjang.id_wisata WHERE id_customer='$id';");
 
+if (isset($_POST["search"])) {
+    $search = $_POST["search"];
+
+    $tbl_keranjang = mysqli_query($conn, "SELECT * FROM keranjang JOIN customer ON customer.id_cust=keranjang.id_customer JOIN paketwisata ON paketwisata.id_wisata=keranjang.id_wisata WHERE id_customer='$id' AND paketwisata.nama_tempat LIKE '%$search%' LIMIT 1;");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -46,6 +52,14 @@ $tbl_keranjang = mysqli_query($conn, "SELECT * FROM keranjang JOIN customer ON c
 
     <section id="hero">
         <div class="hero-container" data-aos="fade-up">
+
+        <form method="post" action="" >
+            <div class="form-floating position-absolute bottom-0 start-0">
+                <input type="text" class="form-control" id="floatingInput" name="search" placeholder="search" required>
+                <label for="floatingInput">Search</label>
+            </div>
+        </form>
+
             <form method="post" action="functions/config.php" >
                 <div class="card form-login" >
                     <div class="card-header">
@@ -70,9 +84,9 @@ $tbl_keranjang = mysqli_query($conn, "SELECT * FROM keranjang JOIN customer ON c
                                         <td><?= $keranjang['harga_tiket'] ?></td>
                                         <td><?= ($keranjang['harga_tiket']*$keranjang['jumlah_tiket'])+(2000*$keranjang['jumlah_tiket']) ?></td>
                                         <td>
-                                            <a type="button" class="btn btn-outline-danger" href=""><i class="bi bi-dash"></i></a>
-                                            <a type="button" class="btn btn-outline-success" href=""><i class="bi bi-plus"></i></a>
-                                            <a type="button" class="btn btn-outline-primary"href=""><i class="bi bi-printer"></i></a>
+                                            <a type="button" class="btn btn-outline-danger" href="editAmount.php?id=<?= $keranjang['id_keranjang'] ?>&action=0"><i class="bi bi-dash"></i></a>
+                                            <a type="button" class="btn btn-outline-success" href="editAmount.php?id=<?= $keranjang['id_keranjang'] ?>&action=1"><i class="bi bi-plus"></i></a>
+                                            <a type="button" class="btn btn-outline-primary"href="printTiket.php?id=<?= $keranjang['id_keranjang'] ?>"><i class="bi bi-printer"></i></a>
                                         </td>
                                     </tr>
                                 <?php } ?>
