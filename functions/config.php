@@ -1,13 +1,13 @@
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root","","responsipwd");
+$conn = mysqli_connect("localhost", "root","","pwd");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
 if (isset($_POST['login'])) {
-    $username = $_POST['username'];
+    $username = $_POST["username"];
     $password = $_POST["password"];
 
     // cocokin dengan database
@@ -26,7 +26,7 @@ if (isset($_POST['login'])) {
 if (isset($_POST["testimoni"])) {
     $testimoni = $_POST["inputTesti"];
     $nama = $_POST["inputNama"];
-    $conn->query( "INSERT INTO testimoni VALUES(NULL, '$nama', '$testimoni');" );
+    $conn->query( "INSERT INTO testimoni VALUES (NULL, '$nama', '$testimoni');" );
 
     header("Location: ../index.php#testimonials");
 }
