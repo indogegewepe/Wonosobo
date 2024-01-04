@@ -16,7 +16,7 @@ $pdf->Cell(10, 7, '', 0, 1);
 $pdf->SetFont('Arial', 'B', 10);
 $pdf->Cell(10, 6, 'NO', 1, 0, "C");
 $pdf->Cell(20, 6, 'AMOUNT', 1, 0, "C");
-$pdf->Cell(25, 6, 'PACKAGE', 1, 0, "C");
+$pdf->Cell(50, 6, 'PACKAGE', 1, 0, "C");
 $pdf->Cell(25, 6, 'TANGGAL', 1, 0, "C");
 $pdf->Cell(30, 6, 'PRICE', 1, 0, "C");
 $pdf->Cell(30, 6, 'TOTAL', 1, 1, "C");
@@ -26,11 +26,22 @@ $data = mysqli_query($conn, "SELECT * FROM keranjang JOIN customer ON customer.i
 while ($keranjang = mysqli_fetch_array($data)) {
     $pdf->Cell(10, 6, $no++, 1, 0, "C");
     $pdf->Cell(20, 6, $keranjang['jumlah_tiket'], 1, 0, "C");
-    $pdf->Cell(25, 6, $keranjang['nama_tempat'], 1, 0, "C");
+    $pdf->Cell(50, 6, $keranjang['nama_tempat'], 1, 0, "C");
     $pdf->Cell(25, 6, $keranjang['tanggal'], 1, 0, "C");
     $pdf->Cell(30, 6, "Rp. ".$keranjang['harga_tiket'].".00,-", 1, 0, "C");
-    $pdf->Cell(30, 6, "Rp. ".($keranjang['harga_tiket']*$keranjang['jumlah_tiket'])+(2000*$keranjang['jumlah_tiket']).".00,-", 1, 1, "C");
+    $pdf->Cell(30, 6, "Rp. ".($keranjang['harga_tiket']*$keranjang['jumlah_tiket']).".00,-", 1, 1, "C");
+
+    $pdf->Cell(10, 6, $no++, 1, 0, "C");
+    $pdf->Cell(20, 6, $keranjang['jumlah_tiket'], 1, 0, "C");
+    $pdf->Cell(50, 6, "Biaya Parkir", 1, 0, "C");
+    $pdf->Cell(25, 6, $keranjang['tanggal'], 1, 0, "C");
+    $pdf->Cell(30, 6, "Rp.2000.00,-", 1, 0, "C");
+    $pdf->Cell(30, 6, "Rp. ".(2000 * $keranjang['jumlah_tiket']).".00,-", 1, 1, "C");
+
+    $pdf->Cell(105, 6, "Total Pembayaran", 1, 0, "C");
+    $pdf->Cell(60, 6, "Rp. ".($keranjang['harga_tiket'] * $keranjang['jumlah_tiket'])+(2000*$keranjang['jumlah_tiket']).".00,-", 1, 0, "C");
 }
+
 $pdf->Output();
 
 ?>
