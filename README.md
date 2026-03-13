@@ -1,6 +1,6 @@
 # Wonosobo
  
-![Wonosobo](https://github.com/indogegewepe/Wonosobo/blob/main/assets/img/Untitled.png)
+![Wonosobo](https://raw.githubusercontent.com/indogegewepe/Wonosobo/refs/heads/main/assets/img/Untitled.png)
 
 ## Preview Website
 
